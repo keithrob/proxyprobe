@@ -1,6 +1,6 @@
 {
     "name": "proxyprobe",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
     "author": {
         "name": "Keith Robertson",
