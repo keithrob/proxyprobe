@@ -2,7 +2,11 @@
     "name": "proxyprobe",
     "version": "1.0.0",
     "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
-    "author": "Keith Robertson <keithro@gmail.com>",
+    "author": {
+        "name": "Keith Robertson",
+        "email": "keithro@gmail.com",
+        "url": "https://github.com/keithrob"
+    },
     "main": "dist/index.js",
     "bin": {
         "proxyprobe": "dist/index.js"
