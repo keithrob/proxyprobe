@@ -4,8 +4,8 @@
   "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
   "author": "",
   "main": "dist/index.js",
-  "bin":{
-    "dist/index.js"
+  "bin": {
+    "proxyprobe": "dist/index.js"
   },
   "scripts": {
     "build": "cross-env npm run clean && cross-env babel ./src -d ./dist --extensions '.ts,.tsx'",
