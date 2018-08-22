@@ -1,44 +1,44 @@
 {
-  "name": "proxyprobe",
-  "version": "1.0.0",
-  "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
-  "author": "",
-  "main": "dist/index.js",
-  "bin": {
-    "proxyprobe": "dist/index.js"
-  },
-  "scripts": {
-    "build": "cross-env npm run clean && cross-env babel ./src -d ./dist --extensions '.ts,.tsx'",
-    "clean": "rimraf dist",
-    "start": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "7.0.0-beta.40",
-    "@babel/core": "7.0.0-beta.40",
-    "@babel/node": "7.0.0-beta.40",
-    "@babel/preset-env": "7.0.0-beta.40",
-    "@babel/preset-react": "7.0.0-beta.40",
-    "@babel/preset-stage-3": "7.0.0-beta.40",
-    "@babel/preset-typescript": "7.0.0-beta.40",
-    "@babel/register": "7.0.0-beta.40",
-    "@types/react": "^16.0.25",
-    "@types/react-dom": "^16.0.3",
-    "babel-plugin-module-resolver": "^3.0.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2017": "^6.24.1",
-    "cross-env": "^5.2.0",
-    "markdown-toc": "^1.2.0",
-    "rimraf": "^2.6.2",
-    "tslint": "^5.8.0",
-    "tslint-config-standard": "^7.0.0",
-    "tslint-react": "^3.2.0",
-    "typescript": "^2.6.1"
-  },
-  "dependencies": {
-    "argparse": "^1.0.10",
-    "chalk": "^2.4.1",
-    "typed-rest-client": "^1.0.7"
-  }
+    "name": "proxyprobe",
+    "version": "1.0.0",
+    "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
+    "author": "Keith Robertson <keithro@gmail.com>",
+    "main": "dist/index.js",
+    "bin": {
+        "proxyprobe": "dist/index.js"
+    },
+    "scripts": {
+        "build": "cross-env npm run clean && cross-env babel ./src -d ./dist --extensions '.ts,.tsx'",
+        "clean": "rimraf dist",
+        "start": "node dist/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "7.0.0-beta.40",
+        "@babel/core": "7.0.0-beta.40",
+        "@babel/node": "7.0.0-beta.40",
+        "@babel/preset-env": "7.0.0-beta.40",
+        "@babel/preset-react": "7.0.0-beta.40",
+        "@babel/preset-stage-3": "7.0.0-beta.40",
+        "@babel/preset-typescript": "7.0.0-beta.40",
+        "@babel/register": "7.0.0-beta.40",
+        "@types/react": "^16.0.25",
+        "@types/react-dom": "^16.0.3",
+        "babel-plugin-module-resolver": "^3.0.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-es2017": "^6.24.1",
+        "cross-env": "^5.2.0",
+        "markdown-toc": "^1.2.0",
+        "rimraf": "^2.6.2",
+        "tslint": "^5.8.0",
+        "tslint-config-standard": "^7.0.0",
+        "tslint-react": "^3.2.0",
+        "typescript": "^2.6.1"
+    },
+    "dependencies": {
+        "argparse": "^1.0.10",
+        "chalk": "^2.4.1",
+        "typed-rest-client": "^1.0.7"
+    }
 }
