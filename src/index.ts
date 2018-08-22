@@ -5,6 +5,7 @@ import * as ap from "argparse/lib/argparse";
 import chalk from "chalk"
 
 const VERSION = "1.0.0";
+const PROGNAME = "proxyprobe";
 
 async function probeURI(
   uri: string,
@@ -15,7 +16,7 @@ async function probeURI(
   caFile?: string,
   passphrase?: string
 ) {
-  let userAgent: string = "proxyprobe";
+  let userAgent: string = PROGNAME;
   let options: ifm.IRequestOptions;
   if (proxyuri){
     options = <ifm.IRequestOptions>{
@@ -72,7 +73,8 @@ let parser = new ap.ArgumentParser({
   addHelp: true,
   description: `A triage tool for validating your proxy settings.  It will
 attempt to egress traffic through your proxy and will print as many details
-as possible to assist with debug.`
+as possible to assist with debug.`,
+  prog: PROGNAME
 });
 parser.addArgument(["-p", "--proxy"], {
   help: "The URI of your proxy server."
