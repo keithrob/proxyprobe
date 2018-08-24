@@ -1,6 +1,6 @@
 {
     "name": "proxyprobe",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Triage tool to egress traffic through your proxy and print all response codes, messages, body, etc.",
     "author": {
         "name": "Keith Robertson",
