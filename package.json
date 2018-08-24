@@ -1,7 +1,7 @@
 {
     "name": "proxyprobe",
     "version": "1.2.2",
-    "description": "Probes your proxy with Typed Rest Client to determine whether or not you can egress traffic and verbosely logs results.",
+    "description": "Triage tool to egress traffic through your proxy and print all response codes, messages, body, etc.",
     "author": {
         "name": "Keith Robertson",
         "email": "keithro@gmail.com",

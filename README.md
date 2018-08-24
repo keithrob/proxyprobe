@@ -1,25 +1,43 @@
 # proxyprobe
+
 Triage tool to egress traffic through your proxy and print all response codes, messages, body, etc.
 
 # TOC
-- [proxyprobe](#proxyprobe)
-- [Usage](#usage)
-- [Help](#help)
-- [Examples](#examples)
-  * [Probe Through A Proxy](#probe-through-a-proxy)
-  * [Probe Directly](#probe-directly)
+
+-   [proxyprobe](#proxyprobe)
+-   [Usage](#usage)
+-   [Help](#help)
+-   [Examples](#examples)
+    -   [Probe Through A Proxy](#probe-through-a-proxy)
+    -   [Probe Directly](#probe-directly)
 
 # Usage
-This is a simple HTTP/S client that will attempt to probe a given URI via your proxy.  It will
+
+This is a simple HTTP/S client that will attempt to probe a given URI via your proxy. It will
 print as many attributes of the attempted connection as possible to help triage connection issues.
 
 In general, you will want to probe a URI by going through your proxy server
-(e.g. `proxyprobe -p http://my.corporate.proxy.example.com -d https://httpbin.org/get`).  However,
+(e.g. `proxyprobe -p http://my.corporate.proxy.example.com -d https://httpbin.org/get`). However,
 you may also want to probe the target URI directly to test whether or not you
 are forced to egress traffic through your proxy.
 
+# PROTIPs
+
+Pay attention to the 'code' that gets thrown in the exception when this client fails to
+reach the given destination (e.g. `at TLSSocket._finishInit (_tls_wrap.js:635:8) code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY'`). This code is also printed in the response
+on successful connections and is _sometimes_ (e.g. `"authorizationError": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"`) set by the TCP stack.
+
+Two usual suspects are:
+
+-   UNABLE_TO_VERIFY_LEAF_SIGNATURE: This is usually indicates that your proxy is expressing a
+    self signed certificate. You can bypass this in your code by unsetting [rejectUnauthorized](https://nodejs.org/api/https.html#https_https_request_options_callback).
+
+-   UNABLE_TO_GET_ISSUER_CERT_LOCALLY: The usually indicates that your proxy is MITMing you
+    and that you need to trust its CA signing certificate. One way to do this at the process
+    level is to set [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file).
 
 # Help
+
 ```
 usage: proxyprobe [-h] [-v] [-p PROXY] [-d DEST] [-i] [-u USER] [-P PASSWORD]
                   [-c CAFILE] [-s CAPASSPHRASE]
@@ -63,9 +81,11 @@ Optional arguments:
                         The secret for your encrypted CA file. Please clear
                         your shell history if you use this.
 ```
+
 # Examples
 
 ## Probe Through A Proxy
+
 ```
 > proxyprobe.cmd -p http://127.0.0.1:8888
 ********************************************************************************
@@ -101,6 +121,7 @@ INFO: Probing https://httpbin.org/get through http://127.0.0.1:8888
 ```
 
 ## Probe Directly
+
 ```
 > proxyprobe.cmd -d https://httpbin.org/get
 ********************************************************************************
