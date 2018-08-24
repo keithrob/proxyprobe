@@ -5,7 +5,9 @@ Triage tool to egress traffic through your proxy and print all response codes, m
 # TOC
 
 -   [proxyprobe](#proxyprobe)
+-   [TOC](#toc)
 -   [Usage](#usage)
+-   [PROTIPs](#protips)
 -   [Help](#help)
 -   [Examples](#examples)
     -   [Probe Through A Proxy](#probe-through-a-proxy)
