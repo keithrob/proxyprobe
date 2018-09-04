@@ -32,7 +32,11 @@ on successful connections and is _sometimes_ (e.g. `"authorizationError": "UNABL
 Two usual suspects are:
 
 -   UNABLE_TO_VERIFY_LEAF_SIGNATURE: This is usually indicates that your proxy is expressing a
-    self signed certificate. You can bypass this in your code by unsetting [rejectUnauthorized](https://nodejs.org/api/https.html#https_https_request_options_callback).
+    self signed certificate or that the CA you supplied (i.e. --CAFILE) file isn't understood.  CA
+    files for Node need to be in PEM format (for windows users this is Base64 encoded).
+    You can bypass this in your code by unsetting [rejectUnauthorized](https://nodejs.org/api/https.html#https_https_request_options_callback).
+    Please do not unset rejectUnauthorized in production code as you are
+    blindly trusting every certificate your target(s) is expressing.
 
 -   UNABLE_TO_GET_ISSUER_CERT_LOCALLY: The usually indicates that your proxy is MITMing you
     and that you need to trust its CA signing certificate. One way to do this at the process
@@ -58,11 +62,8 @@ Optional arguments:
                         proxy server. The default is https://httpbin.org/get.
   -i, --ignoreselfsigned
                         By default, this tool ignores the certificate
-                        expressed by your proxy server because most corporate
-                        proxies are using self signed certificates. Setting
-                        this flag will cause this client to STOP ignoring
-                        self signed certs. If you set this you probably need
-                        to supply cafile.
+                        expressed by your proxy server. If you set this you
+                        probably need to supply cafile.
   -u USER, --user USER  The user that you should authenticate to your proxy
                         server as.
   -P PASSWORD, --password PASSWORD
